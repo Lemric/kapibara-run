@@ -22,9 +22,11 @@ for (const [file, html] of documents) {
   }
   if (/<form\b|<iframe\b/i.test(html)) failures.push(`${label}: unexpected active or embedded content`);
   const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
-  const expectedScript = label.startsWith('en' + path.sep) ? '../assets/theme.js' : 'assets/theme.js';
+  const prefix = label.startsWith('en' + path.sep) ? '../assets/' : 'assets/';
+  const allowedScripts = [`src="${prefix}theme.js"`];
+  if (path.basename(file) === 'index.html') allowedScripts.push(`src="${prefix}carousel.js"`);
   for (const script of scripts) {
-    if (script[1].trim() !== `src="${expectedScript}"` || script[2].trim()) {
+    if (!allowedScripts.includes(script[1].trim()) || script[2].trim()) {
       failures.push(`${label}: unexpected script`);
     }
   }
