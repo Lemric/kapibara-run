@@ -81,6 +81,7 @@ img { display: block; max-width: 100%; height: auto; }
 .product-hero { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); align-items: center; gap: 48px; padding: 40px 0 48px; }
 .product-hero .lead { margin: 16px 0 24px; }
 .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.store-action { margin-bottom: 8px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; padding: 10px 20px; border: 1px solid transparent; border-radius: var(--radius-full); background: var(--accent); color: var(--accent-contrast); font: 590 15px/1.45 var(--font); overflow-wrap: anywhere; }
 .button:hover { background: var(--accent-hover); color: var(--accent-contrast); text-decoration: none; }
 .button-quiet { background: transparent; color: var(--accent); }
